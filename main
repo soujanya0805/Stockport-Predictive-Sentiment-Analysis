@@ -1,0 +1,29 @@
+import numpy as np
+import tensorflow as tf
+from keras.callbacks import ModelCheckpoint
+from keras.models import Sequential
+from keras.layers import LSTM,Conv1D,Conv2D,MaxPooling2D,MaxPooling1D,Flatten
+from keras.layers import Dense, Dropout
+import pandas as pd
+# from keras.optimizers import Adam
+from matplotlib import pyplot as plt
+from sklearn.preprocessing import StandardScaler,MinMaxScaler
+import seaborn as sns
+#from datetime import datetime
+
+from tensorflow.compat.v1.keras.layers import CuDNNLSTM,Bidirectional
+
+
+import seaborn as sns
+plt.figure(figsize=(25,7));
+sns.lineplot(x=df["date"],y=df["Adj Close"])
+df['sentiment_analysis']=df['P_mean']
+df['sentiment_analysis']=df['sentiment_analysis'].apply(lambda x: 'pos' if x>0 else 'nue' if x==0 else 'neg')
+sns.scatterplot(x=df["date"],y=df['Adj Close'],hue=df['sentiment_analysis'],palette=['y','r','g'])
+plt.xticks(rotation=45);
+plt.title("Stock market of Netfilx from Jan-2018 to Jul-2022",fontsize=16);
+
+
+
+Feature Scaling:                                                                                                                                                                              
+
